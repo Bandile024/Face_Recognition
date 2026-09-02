@@ -1,8 +1,8 @@
 # Performing Facial Recognition with Deep Learning
 
-Course-end certification project: build a baseline CNN facial recognition model for **Face2Gene**, using the ORL (AT&T) Database of Faces (400 images, 40 subjects).
+Course-end certification project: build a baseline CNN facial recognition model for Face2Gene, using the ORL (AT&T) Database of Faces (400 images, 40 subjects).
 
-This project targets **Python 3.14** and uses **PyTorch** rather than TensorFlow, because TensorFlow does not currently publish wheels for Python 3.14. Everything else in the brief (CNN with conv/pool/FC layers, train/val/test split, iterate to >90% accuracy) is implemented the same way, just in PyTorch.
+This project targets Python 3.14 and uses PyTorch rather than TensorFlow, because TensorFlow does not currently publish wheels for Python 3.14. Everything else in the brief (CNN with conv/pool/FC layers, train/val/test split, iterate to >90% accuracy) is implemented the same way, just in PyTorch.
 
 ## Files
 
