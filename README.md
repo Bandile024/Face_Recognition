@@ -42,10 +42,10 @@ This installs PyTorch (CPU build), torchvision, scikit-learn, numpy, matplotlib,
 
 ## 3. Open and run the notebook in VS Code
 
-1. Install the **Python** and **Jupyter** extensions in VS Code if you don't already have them (Extensions panel, search "Python" and "Jupyter", both by Microsoft).
+1. Install the Python and Jupyter extensions in VS Code if you don't already have them (Extensions panel, search "Python" and "Jupyter", both by Microsoft).
 2. Open `facial_recognition.ipynb` in VS Code.
-3. In the top-right of the notebook, click the kernel picker and select the Python interpreter from `.venv` (it will usually show as `.venv (Python 3.14.x)`). If it's not listed, use **Select Kernel > Python Environments...** and browse to `.venv\Scripts\python.exe`.
-4. Click **Run All** at the top of the notebook (or run cells one at a time with `Shift+Enter`).
+3. In the top-right of the notebook, click the kernel picker and select the Python interpreter from `.venv` (it will usually show as `.venv (Python 3.14.x)`). If it's not listed, use Select Kernel > Python Environments... and browse to `.venv\Scripts\python.exe`.
+4. Click Run All at the top of the notebook (or run cells one at a time with `Shift+Enter`).
 
 ## 4. What happens when you run it
 
@@ -56,23 +56,23 @@ This installs PyTorch (CPU build), torchvision, scikit-learn, numpy, matplotlib,
 
 ## Troubleshooting
 
-**`python3` not found / Microsoft Store popup**
+`python3` not found / Microsoft Store popup
 On Windows the command is `python`, not `python3`. If you've already hit this, see Windows Settings → Apps → Advanced app settings → App execution aliases, and turn off the `python.exe`/`python3.exe` Store shortcuts.
 
-**`pip install -r requirements.txt` fails on `torch`**
+`pip install -r requirements.txt` fails on `torch`
 Make sure you're using Python 3.10–3.14 (check with `python --version`). If you're on an even newer Python release than 3.14, PyTorch wheels may not exist yet either — check [pytorch.org](https://pytorch.org/get-started/locally/) for current support.
 
-**Dataset download fails / times out**
+Dataset download fails / times out
 `fetch_olivetti_faces` needs an internet connection on first run only. If your network blocks the download host, try again on a different network, or download the dataset manually from the [Kaggle link in the project brief](https://www.kaggle.com/datasets/kasikrit/att-database-of-faces) and adapt the loading cell as described in the notebook's data-loading section (Section 2).
 
-**Kernel doesn't show `.venv` in VS Code**
-Restart VS Code after creating the venv, then use **Python: Select Interpreter** from the Command Palette (`Ctrl+Shift+P`) to pick `.venv` explicitly, and re-pick it as the notebook kernel.
+Kernel doesn't show `.venv` in VS Code
+Restart VS Code after creating the venv, then use Python: Select Interpreter from the Command Palette (`Ctrl+Shift+P`) to pick `.venv` explicitly, and re-pick it as the notebook kernel.
 
 ## Notes on the approach
 
-- **Dataset:** ORL/AT&T Database of Faces, loaded via scikit-learn (64x64 grayscale, pixel values in [0, 1]).
-- **Split:** stratified 70/15/15 train/validation/test, so each of the 40 subjects is represented in every split despite only having 10 images each.
-- **Model:** a compact CNN (3 conv+pool blocks, then fully-connected classifier), with batch norm and dropout for regularization on this small dataset.
-- **Training:** Adam optimizer, cross-entropy loss, learning-rate scheduling on validation loss plateau, best-checkpoint selection by validation accuracy.
-- **Evaluation:** test accuracy, per-class precision/recall/F1, confusion matrix, and visual sample predictions.
-- **Optional transfer-learning variant** included (a pretrained `mobilenet_v3_small` backbone) for comparison against the baseline CNN.
+- Dataset: ORL/AT&T Database of Faces, loaded via scikit-learn (64x64 grayscale, pixel values in [0, 1]).
+- Split: stratified 70/15/15 train/validation/test, so each of the 40 subjects is represented in every split despite only having 10 images each.
+- Model: a compact CNN (3 conv+pool blocks, then fully-connected classifier), with batch norm and dropout for regularization on this small dataset.
+- Training: Adam optimizer, cross-entropy loss, learning-rate scheduling on validation loss plateau, best-checkpoint selection by validation accuracy.
+- Evaluation: test accuracy, per-class precision/recall/F1, confusion matrix, and visual sample predictions.
+- Optional transfer-learning variant included (a pretrained `mobilenet_v3_small` backbone) for comparison against the baseline CNN.
