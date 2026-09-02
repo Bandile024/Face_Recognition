@@ -1,0 +1,20 @@
+# Facial Recognition with Deep Learning — requirements
+# Tested with Python 3.14. TensorFlow is intentionally NOT used here because
+# it does not yet publish wheels for Python 3.14; this project uses PyTorch,
+# which does.
+
+# Core numerical / plotting
+numpy>=2.1
+matplotlib>=3.9
+scipy>=1.14
+
+# Data + classic ML utilities (train/test split, metrics, and the ORL dataset loader)
+scikit-learn>=1.5
+
+# Deep learning
+torch>=2.6
+torchvision>=0.21
+
+# Notebook environment
+jupyter>=1.0
+ipykernel>=6.29
